@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 cache = redis.Redis.from_url(
-    os.getenv("REDIS_URL", "redis://localhost:6379/2")
+    os.getenv("REDIS_URL", "redis://localhost:6379/2"), ssl_cert_reqs=None
 )
 
 def generate_cache_key(symptoms: str) -> str:

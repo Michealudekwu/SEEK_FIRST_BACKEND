@@ -5,8 +5,8 @@ load_dotenv()
 
 celery = Celery(
     "seek",
-    broker=os.getenv("REDIS_URL"),
-    backend=os.getenv("REDIS_URL"),
+    broker=os.getenv("REDIS_URL") + "?ssl_cert_reqs=CERT_NONE",
+    backend=os.getenv("REDIS_URL") + "?ssl_cert_reqs=CERT_NONE",
     include=["tasker"]
 )
 
