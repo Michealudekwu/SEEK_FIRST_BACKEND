@@ -22,12 +22,12 @@ app.add_middleware(
     allow_headers = ['*'],
 )
 
-@app.on_event("startup")
-def check_redis():
-    try:
-        print(f"redis server is... {"connected" if cache.ping else "Not connected"}")
-    except Exception as e:
-        print("Redis connection failed:", e)
+# @app.on_event("startup")
+# def check_redis():
+#     try:
+#         print(f"redis server is... {"connected" if cache.ping else "Not connected"}")
+#     except Exception as e:
+#         print("Redis connection failed:", e)
 
 async def wait_for_result(task_id: str, timeout: int =60):
     for _ in range(timeout *2):
